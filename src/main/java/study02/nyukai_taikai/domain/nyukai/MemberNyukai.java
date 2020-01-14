@@ -1,17 +1,20 @@
 package study02.nyukai_taikai.domain.nyukai;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.ToString;
 import study02.nyukai_taikai.domain.account.MemberAccount;
-import study02.nyukai_taikai.domain.course.Course;
-import study02.nyukai_taikai.domain.credit_card.CreditCard;
-import study02.nyukai_taikai.domain.member.MemberId;
+import study02.nyukai_taikai.domain.member.MemberMailAddress;
 
+@RequiredArgsConstructor
+@EqualsAndHashCode
+@ToString(includeFieldNames = false)
 public class MemberNyukai {
-
-    private MemberId memberId;
-    private MemberAccount memberAccount;
-    private NyukaiApplyDate nyukaiApplyDate;
-    private NyukaiDate nyukaiDate;
-    private CreditCard creditCard;
-    private Course course;
-
+    @Getter
+    private final MemberAccount memberAccount;
+    @Getter
+    private final NyukaiApplyDate nyukaiApplyDate;
+    @Getter
+    private final MemberMailAddress memberMailAddress;
 }

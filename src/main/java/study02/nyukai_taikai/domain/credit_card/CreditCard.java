@@ -1,18 +1,15 @@
 package study02.nyukai_taikai.domain.credit_card;
 
+import lombok.EqualsAndHashCode;
+import lombok.RequiredArgsConstructor;
+import study02.nyukai_taikai.domain.member.MemberId;
+
+@RequiredArgsConstructor
+@EqualsAndHashCode
 public class CreditCard {
 
-    private CreditCardNumber creditCardNumber;
-    private CreditCardExpirationDate creditCardExpirationDate;
-    private CreditCardSecurityCode creditCardSecurityCode;
-
-    public CreditCard(
-            CreditCardNumber creditCardNumber,
-            CreditCardExpirationDate creditCardExpirationDate,
-            CreditCardSecurityCode creditCardSecurityCode) {
-
-        this.creditCardNumber = creditCardNumber;
-        this.creditCardExpirationDate = creditCardExpirationDate;
-        this.creditCardSecurityCode = creditCardSecurityCode;
-    }
+    private final MemberId memberId;
+    private final CreditCardNumber creditCardNumber;
+    private final CreditCardExpirationDate creditCardExpirationDate;
+    private final CreditCardSecurityCode creditCardSecurityCode;
 }
