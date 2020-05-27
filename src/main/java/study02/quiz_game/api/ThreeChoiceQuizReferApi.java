@@ -3,6 +3,7 @@ package study02.quiz_game.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import study02.quiz_game.domain.ThreeChoiceQuizNumber;
@@ -19,12 +20,14 @@ public class ThreeChoiceQuizReferApi {
     private ThreeChoiceQuizReferService threeChoiceQuizReferService;
 
     @RequestMapping(value = "/three-choice-quiz/refer")
-    public String refer() {
-        ThreeChoiceQuizNumber threeChoiceQuizNumber = threeChoiceQuizReferService.refer();
+    public String refer(Model model) {
+        Integer a = threeChoiceQuizReferService.refer();
 
-        Map<String, String> res = new HashMap<>();
-        res.put("response", "OK");
-        res.put("quiz_number", threeChoiceQuizNumber.getValue().toString());
+        Map<String, String> map = new HashMap<>();
+        map.put("response", "OK");
+        map.put("quiz_number", a.toString());
+        model.addAttribute("map", map);
+
         return "three-choice-quiz/refer";
     }
 }

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="study02.quiz_game.datasource.ThreeChoiceQuizMapper">
+    <update id="issue">
+        UPDATE three_choice_quiz_sequence SET id = (id + 1)
+    </update>
+
+    <select id="find" resultType="int">
+        SELECT id FROM three_choice_quiz_sequence
+    </select>
+
+    <select id="findListBy" resultType="Integer">
+        SELECT count(*) FROM three_choice_quiz_event
+    </select>
+
+<!--    <resultMap id="threeChoiceQuizResultMap" type="study02.quiz_game.domain.ThreeChoiceQuizNumber">-->
+<!--        <result property="value" column="three_choice_quiz_number" />-->
+<!--    </resultMap>-->
+</mapper>

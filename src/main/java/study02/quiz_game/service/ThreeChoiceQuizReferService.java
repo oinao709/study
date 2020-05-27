@@ -8,17 +8,23 @@ import study02.quiz_game.domain.ThreeChoiceQuiz;
 import study02.quiz_game.domain.ThreeChoiceQuizList;
 import study02.quiz_game.domain.ThreeChoiceQuizNumber;
 
+import java.util.List;
+
 @Service
 public class ThreeChoiceQuizReferService {
 
     @Autowired
     private IThreeChoiceQuizRepository iThreeChoiceQuizRepository;
 
-    public ThreeChoiceQuizNumber refer() {
+    public Integer refer() {
 
         // 三択クイズ番号払い出し
-        ThreeChoiceQuizList threeChoiceQuizList = iThreeChoiceQuizRepository.refer();
+//        ThreeChoiceQuizList threeChoiceQuizList = iThreeChoiceQuizRepository.refer();
+//        List<ThreeChoiceQuizNumber> threeChoiceQuizNumbers = iThreeChoiceQuizRepository.refer();
+        Integer a = iThreeChoiceQuizRepository.refer();
 
-        return threeChoiceQuizList.getRand().getQuizNumber();
+        return a;
+
+//        return threeChoiceQuizList.getRand().getQuizNumber();
     }
 }

@@ -4,16 +4,21 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import study02.quiz_game.domain.ThreeChoiceQuizNumber;
+
+import java.util.List;
 
 @Mapper
 public interface ThreeChoiceQuizMapper {
 
-    @Insert("UPDATE three_choice_quiz_sequence SET id = (id + 1)")
+//    @Insert("UPDATE three_choice_quiz_sequence SET id = (id + 1)")
     void issue();
 
-    @Select("SELECT id FROM three_choice_quiz_sequence")
+//    @Select("SELECT id FROM three_choice_quiz_sequence")
     int find();
 
+    Integer findListBy();
+    
     @Insert(
             "INSERT INTO three_choice_quiz_event (" +
                     "three_choice_quiz_number, " +

@@ -23,14 +23,18 @@ public class ThreeChoiceQuizRepository implements IThreeChoiceQuizRepository {
         return new ThreeChoiceQuizNumber(threeChoiceQuizMapper.find());
     }
 
-    @Override
-    public ThreeChoiceQuizList refer() {
-
-        List list = new ArrayList<ThreeChoiceQuiz>();
-
-        return new ThreeChoiceQuizList(list);
+    public Integer refer() {
+        return threeChoiceQuizMapper.findListBy();
     }
 
+//    @Override
+//    public ThreeChoiceQuizList refer() {
+//
+//        List list = new ArrayList<ThreeChoiceQuiz>();
+//
+//        return new ThreeChoiceQuizList(list);
+//    }
+//
     @Override
     public void register(ThreeChoiceQuiz threeChoiceQuiz) {
         // 永続化
