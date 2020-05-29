@@ -23,68 +23,17 @@ public class ThreeChoiceQuizRepository implements IThreeChoiceQuizRepository {
         return new ThreeChoiceQuizNumber(threeChoiceQuizMapper.find());
     }
 
-    public Integer refer() {
-        return threeChoiceQuizMapper.findListBy();
+    @Override
+    public ThreeChoiceQuiz refer() {
+        List<ThreeChoiceQuizCore> threeChoiceQuizCores = threeChoiceQuizMapper.findListBy();
+        ThreeChoiceQuiz threeChoiceQuiz = threeChoiceQuizCores.get(0).create();
+        return threeChoiceQuiz;
     }
 
-//    @Override
-//    public ThreeChoiceQuizList refer() {
-//
-//        List list = new ArrayList<ThreeChoiceQuiz>();
-//
-//        return new ThreeChoiceQuizList(list);
-//    }
-//
     @Override
     public void register(ThreeChoiceQuiz threeChoiceQuiz) {
         // 永続化
-        threeChoiceQuizMapper.insert(
-                threeChoiceQuiz.getQuizNumber().getValue(),
-                threeChoiceQuiz.getThreeChoiceQuestionInfomation()
-                        .getThreeChoiceQuizQuestion()
-                        .getQuestion()
-                        .getValue(),
-                threeChoiceQuiz.getThreeChoiceQuestionInfomation()
-                        .getThreeChoiceQuizAnswer()
-                        .getThreeChoiceQuizChoice()
-                        .getThreeChoiceQuizSelectionItemA()
-                        .getThreeChoiceQuizSelectionItemValue()
-                        .getValue(),
-                threeChoiceQuiz.getThreeChoiceQuestionInfomation()
-                        .getThreeChoiceQuizAnswer()
-                        .getThreeChoiceQuizChoice()
-                        .getThreeChoiceQuizSelectionItemA()
-                        .getCorrectAnswerJudgment()
-                        .getCorrectAnswerJudgementValie(),
-                threeChoiceQuiz.getThreeChoiceQuestionInfomation()
-                        .getThreeChoiceQuizAnswer()
-                        .getThreeChoiceQuizChoice()
-                        .getThreeChoiceQuizSelectionItemB()
-                        .getThreeChoiceQuizSelectionItemValue()
-                        .getValue(),
-                threeChoiceQuiz.getThreeChoiceQuestionInfomation()
-                        .getThreeChoiceQuizAnswer()
-                        .getThreeChoiceQuizChoice()
-                        .getThreeChoiceQuizSelectionItemB()
-                        .getCorrectAnswerJudgment()
-                        .getCorrectAnswerJudgementValie(),
-                threeChoiceQuiz.getThreeChoiceQuestionInfomation()
-                        .getThreeChoiceQuizAnswer()
-                        .getThreeChoiceQuizChoice()
-                        .getThreeChoiceQuizSelectionItemC()
-                        .getThreeChoiceQuizSelectionItemValue()
-                        .getValue(),
-                threeChoiceQuiz.getThreeChoiceQuestionInfomation()
-                        .getThreeChoiceQuizAnswer()
-                        .getThreeChoiceQuizChoice()
-                        .getThreeChoiceQuizSelectionItemC()
-                        .getCorrectAnswerJudgment()
-                        .getCorrectAnswerJudgementValie(),
-                threeChoiceQuiz.getThreeChoiceQuestionInfomation()
-                        .getThreeChoiceQuizAnswer()
-                        .getExplanation()
-                        .getValue()
-        );
+        threeChoiceQuizMapper.insert(threeChoiceQuiz);
     }
 
 }

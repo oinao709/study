@@ -1,11 +1,39 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8" />
-    <title>Hello Thymeleaf</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>クイズ参照画面</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/4.2.1/css/bootstrap.min.css}" rel="stylesheet"/>
 </head>
 <body>
+<h1>クイズ参照画面</h1>
     参照結果<div th:text="${map['response']}"></div>
-    参照件数<div th:text="${map['quiz_number']}"></div>
+    <table class="table table-bordered">
+        <tr>
+            <td><label>クイズ番号</label></td>
+            <th th:text="${map['quiz_number']}"></th>
+        </tr>
+        <tr>
+            <td><label>問題文</label></td>
+            <th th:text="${map['question']}"></th>
+        </tr>
+        <tr>
+            <td><label>選択肢A</label></td>
+            <th th:text="${map['three_choice_quiz_choice_a']}"></th>
+        </tr>
+        <tr>
+            <td><label>選択肢B</label></td>
+            <th th:text="${map['three_choice_quiz_choice_b']}"></th>
+        </tr>
+        <tr>
+            <td><label>選択肢C</label></td>
+            <th th:text="${map['three_choice_quiz_choice_c']}"></th>
+        </tr>
+    </table>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"
+        th:src="@{/webjars/jquery/3.3.1/jquery.min.js}"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"
+        th:src="@{/webjars/bootstrap/4.2.1/js/bootstrap.min.js}"></script>
 </body>
 </html>

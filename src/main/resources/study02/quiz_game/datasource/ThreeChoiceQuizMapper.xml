@@ -11,11 +11,58 @@
         SELECT id FROM three_choice_quiz_sequence
     </select>
 
-    <select id="findListBy" resultType="Integer">
-        SELECT count(*) FROM three_choice_quiz_event
+    <select id="findListBy" resultMap="ThreeChoiceQuizCoreResultMap">
+        SELECT
+            three_choice_quiz_number,
+            question,
+            three_choice_quiz_choice_a,
+            correct_answer_judgement_a,
+            three_choice_quiz_choice_b,
+            correct_answer_judgement_b,
+            three_choice_quiz_choice_c,
+            correct_answer_judgement_c,
+            explanation
+        FROM
+         three_choice_quiz_event
     </select>
 
-<!--    <resultMap id="threeChoiceQuizResultMap" type="study02.quiz_game.domain.ThreeChoiceQuizNumber">-->
-<!--        <result property="value" column="three_choice_quiz_number" />-->
-<!--    </resultMap>-->
+    <insert id="insert">
+        INSERT INTO three_choice_quiz_event (
+            three_choice_quiz_number,
+            question,
+            three_choice_quiz_choice_a,
+            correct_answer_judgement_a,
+            three_choice_quiz_choice_b,
+            correct_answer_judgement_b,
+            three_choice_quiz_choice_c,
+            correct_answer_judgement_c,
+            explanation,
+            system_date
+        ) VALUES (
+            #{threeChoiceQuiz.quizNumber.value},
+            #{threeChoiceQuiz.threeChoiceQuestionInfomation.threeChoiceQuizQuestion.question.value},
+            #{threeChoiceQuiz.threeChoiceQuestionInfomation.threeChoiceQuizAnswer.threeChoiceQuizChoice.threeChoiceQuizSelectionItemA.threeChoiceQuizSelectionItemValue.value},
+            #{threeChoiceQuiz.threeChoiceQuestionInfomation.threeChoiceQuizAnswer.threeChoiceQuizChoice.threeChoiceQuizSelectionItemA.correctAnswerJudgment.correctAnswerJudgementValie},
+            #{threeChoiceQuiz.threeChoiceQuestionInfomation.threeChoiceQuizAnswer.threeChoiceQuizChoice.threeChoiceQuizSelectionItemB.threeChoiceQuizSelectionItemValue.value},
+            #{threeChoiceQuiz.threeChoiceQuestionInfomation.threeChoiceQuizAnswer.threeChoiceQuizChoice.threeChoiceQuizSelectionItemB.correctAnswerJudgment.correctAnswerJudgementValie},
+            #{threeChoiceQuiz.threeChoiceQuestionInfomation.threeChoiceQuizAnswer.threeChoiceQuizChoice.threeChoiceQuizSelectionItemC.threeChoiceQuizSelectionItemValue.value},
+            #{threeChoiceQuiz.threeChoiceQuestionInfomation.threeChoiceQuizAnswer.threeChoiceQuizChoice.threeChoiceQuizSelectionItemC.correctAnswerJudgment.correctAnswerJudgementValie},
+            #{threeChoiceQuiz.threeChoiceQuestionInfomation.threeChoiceQuizAnswer.explanation.value},
+            sysdate
+        )
+    </insert>
+
+    <resultMap id="ThreeChoiceQuizCoreResultMap" type="study02.quiz_game.datasource.ThreeChoiceQuizCore">
+        <constructor>
+            <arg column="three_choice_quiz_number" javaType="Integer" jdbcType="INTEGER" />
+            <arg column="question" javaType="String" jdbcType="VARCHAR" />
+            <arg column="three_choice_quiz_choice_a" javaType="String" jdbcType="VARCHAR" />
+            <arg column="correct_answer_judgement_a" javaType="String" jdbcType="VARCHAR" />
+            <arg column="three_choice_quiz_choice_b" javaType="String" jdbcType="VARCHAR" />
+            <arg column="correct_answer_judgement_b" javaType="String" jdbcType="VARCHAR" />
+            <arg column="three_choice_quiz_choice_c" javaType="String" jdbcType="VARCHAR" />
+            <arg column="correct_answer_judgement_c" javaType="String" jdbcType="VARCHAR" />
+            <arg column="explanation" javaType="String" jdbcType="VARCHAR" />
+        </constructor>
+    </resultMap>
 </mapper>

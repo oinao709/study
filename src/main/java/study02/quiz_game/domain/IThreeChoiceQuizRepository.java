@@ -5,9 +5,6 @@ import java.util.List;
 public interface IThreeChoiceQuizRepository {
 
     public ThreeChoiceQuizNumber assignment();
-
-//    public ThreeChoiceQuizList refer();
-
-    public Integer refer();
+    public ThreeChoiceQuiz refer();
     void register(ThreeChoiceQuiz threeChoiceQuiz);
 }

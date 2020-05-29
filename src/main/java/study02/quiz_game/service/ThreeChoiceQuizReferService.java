@@ -16,14 +16,14 @@ public class ThreeChoiceQuizReferService {
     @Autowired
     private IThreeChoiceQuizRepository iThreeChoiceQuizRepository;
 
-    public Integer refer() {
+    public ThreeChoiceQuiz refer() {
 
         // 三択クイズ番号払い出し
 //        ThreeChoiceQuizList threeChoiceQuizList = iThreeChoiceQuizRepository.refer();
 //        List<ThreeChoiceQuizNumber> threeChoiceQuizNumbers = iThreeChoiceQuizRepository.refer();
-        Integer a = iThreeChoiceQuizRepository.refer();
+        ThreeChoiceQuiz threeChoiceQuiz = iThreeChoiceQuizRepository.refer();
 
-        return a;
+        return threeChoiceQuiz;
 
 //        return threeChoiceQuizList.getRand().getQuizNumber();
     }
