@@ -7,7 +7,6 @@ import study02.quiz_game.domain.ThreeChoiceQuiz;
 import study02.quiz_game.domain.ThreeChoiceQuizList;
 import study02.quiz_game.domain.ThreeChoiceQuizNumber;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 

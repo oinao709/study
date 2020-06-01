@@ -1,7 +1,6 @@
 package study02.quiz_game.domain;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 
 import java.util.List;
 import java.util.Random;
