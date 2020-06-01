@@ -9,6 +9,7 @@ import study02.quiz_game.domain.ThreeChoiceQuizNumber;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Repository
 public class ThreeChoiceQuizRepository implements IThreeChoiceQuizRepository {
@@ -26,8 +27,9 @@ public class ThreeChoiceQuizRepository implements IThreeChoiceQuizRepository {
     @Override
     public ThreeChoiceQuiz refer() {
         List<ThreeChoiceQuizCore> threeChoiceQuizCores = threeChoiceQuizMapper.findListBy();
-        ThreeChoiceQuiz threeChoiceQuiz = threeChoiceQuizCores.get(0).create();
-        return threeChoiceQuiz;
+        ThreeChoiceQuizList threeChoiceQuizs = new ThreeChoiceQuizList(
+                threeChoiceQuizCores.stream().map(ThreeChoiceQuizCore::create).collect(Collectors.toList()));
+        return threeChoiceQuizs.getRand();
     }
 
     @Override
