@@ -36,15 +36,15 @@ public class ThreeChoiceQuizCore {
         this.question = new Question(question);
         this.threeChoiceQuizSelectionItemA = new ThreeChoiceQuizSelectionItemA(
                 new ThreeChoiceQuizSelectionItemValue(threeChoiceQuizChoiceA),
-                CorrectAnswerJudgment.INCORRECT_ANSWER
+                CorrectAnswerJudgment.get(correctAnswerJudgementA)
         );
         this.threeChoiceQuizSelectionItemB = new ThreeChoiceQuizSelectionItemB(
                 new ThreeChoiceQuizSelectionItemValue(threeChoiceQuizChoiceB),
-                CorrectAnswerJudgment.INCORRECT_ANSWER
+                CorrectAnswerJudgment.get(correctAnswerJudgementB)
         );
         this.threeChoiceQuizSelectionItemC = new ThreeChoiceQuizSelectionItemC(
                 new ThreeChoiceQuizSelectionItemValue(threeChoiceQuizChoiceC),
-                CorrectAnswerJudgment.INCORRECT_ANSWER
+                CorrectAnswerJudgment.get(correctAnswerJudgementC)
         );
         this.explanation = new Explanation(explanation);
     }

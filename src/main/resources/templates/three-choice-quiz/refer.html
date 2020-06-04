@@ -31,9 +31,30 @@
             <th th:text="${map['three_choice_quiz_choice_c']}"></th>
         </tr>
     </table>
+    <table class="table table-bordered">
+        <input id="answer_view" type="button" th:value="答えを表示する" class="btn btn-info" onclick="view();"/>
+        <input id="answer_hidden" type="button" th:value="答えを隠す" class="btn btn-info" style="display:none;" onclick="view_hidden();"/>
+    </table>
+    <table id="answer" class="table table-bordered" style="display:none;">
+        <tr>
+            <th th:text="${map['three_quiz_answer']}"></th>
+        </tr>
+    </table>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"
         th:src="@{/webjars/jquery/3.3.1/jquery.min.js}"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"
         th:src="@{/webjars/bootstrap/4.2.1/js/bootstrap.min.js}"></script>
+<script type="text/javascript">
+    function view() {
+        document.getElementById('answer').style.display='block';
+        document.getElementById('answer_view').style.display='none';
+        document.getElementById('answer_hidden').style.display='block';
+    }
+    function view_hidden() {
+        document.getElementById('answer').style.display='none';
+        document.getElementById('answer_view').style.display='block';
+        document.getElementById('answer_hidden').style.display='none';
+    }
+</script>
 </body>
 </html>
