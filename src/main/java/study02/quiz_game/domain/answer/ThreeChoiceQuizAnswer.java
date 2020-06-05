@@ -9,4 +9,8 @@ public class ThreeChoiceQuizAnswer {
     private final ThreeChoiceQuizChoice threeChoiceQuizChoice;
     @Getter
     private final Explanation explanation;
+
+    public ThreeChoiceQuizSelectionItemValue getThreeChoiceQuizSelectionItemValue() {
+        return threeChoiceQuizChoice.getThreeChoiceQuizSelectionItemValue();
+    }
 }

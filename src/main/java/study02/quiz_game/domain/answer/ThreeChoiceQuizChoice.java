@@ -11,4 +11,17 @@ public class ThreeChoiceQuizChoice {
     private final ThreeChoiceQuizSelectionItemB threeChoiceQuizSelectionItemB;
     @Getter
     private final ThreeChoiceQuizSelectionItemC threeChoiceQuizSelectionItemC;
+
+    public ThreeChoiceQuizSelectionItemValue getThreeChoiceQuizSelectionItemValue() {
+        if (threeChoiceQuizSelectionItemA.isCorrectAnswer()) {
+            return threeChoiceQuizSelectionItemA.getThreeChoiceQuizSelectionItemValue();
+        }
+        if (threeChoiceQuizSelectionItemB.isCorrectAnswer()) {
+            return threeChoiceQuizSelectionItemB.getThreeChoiceQuizSelectionItemValue();
+        }
+        if (threeChoiceQuizSelectionItemC.isCorrectAnswer()) {
+            return threeChoiceQuizSelectionItemC.getThreeChoiceQuizSelectionItemValue();
+        }
+        throw new RuntimeException("答えがないよ");
+    }
 }

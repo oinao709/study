@@ -9,4 +9,8 @@ public class ThreeChoiceQuizSelectionItemB implements ThreeChoiceQuizSelectionIt
     private final ThreeChoiceQuizSelectionItemValue threeChoiceQuizSelectionItemValue;
     @Getter
     private final CorrectAnswerJudgment correctAnswerJudgment;
+
+    public boolean isCorrectAnswer() {
+        return correctAnswerJudgment.equals(CorrectAnswerJudgment.CORRECT_ANSWER);
+    }
 }

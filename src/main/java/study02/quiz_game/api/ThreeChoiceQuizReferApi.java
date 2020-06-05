@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import study02.quiz_game.domain.ThreeChoiceQuiz;
-import study02.quiz_game.domain.answer.CorrectAnswerJudgment;
 import study02.quiz_game.service.ThreeChoiceQuizReferService;
 
 import java.util.HashMap;
@@ -27,15 +26,7 @@ public class ThreeChoiceQuizReferApi {
         map.put("three_choice_quiz_choice_a", threeChoiceQuiz.getThreeChoiceQuestionInfomation().getThreeChoiceQuizAnswer().getThreeChoiceQuizChoice().getThreeChoiceQuizSelectionItemA().getThreeChoiceQuizSelectionItemValue().getValue());
         map.put("three_choice_quiz_choice_b", threeChoiceQuiz.getThreeChoiceQuestionInfomation().getThreeChoiceQuizAnswer().getThreeChoiceQuizChoice().getThreeChoiceQuizSelectionItemB().getThreeChoiceQuizSelectionItemValue().getValue());
         map.put("three_choice_quiz_choice_c", threeChoiceQuiz.getThreeChoiceQuestionInfomation().getThreeChoiceQuizAnswer().getThreeChoiceQuizChoice().getThreeChoiceQuizSelectionItemC().getThreeChoiceQuizSelectionItemValue().getValue());
-        if (threeChoiceQuiz.getThreeChoiceQuestionInfomation().getThreeChoiceQuizAnswer().getThreeChoiceQuizChoice().getThreeChoiceQuizSelectionItemA().getCorrectAnswerJudgment().equals(CorrectAnswerJudgment.CORRECT_ANSWER)) {
-            map.put("three_quiz_answer", threeChoiceQuiz.getThreeChoiceQuestionInfomation().getThreeChoiceQuizAnswer().getThreeChoiceQuizChoice().getThreeChoiceQuizSelectionItemA().getThreeChoiceQuizSelectionItemValue().getValue());
-        }
-        if (threeChoiceQuiz.getThreeChoiceQuestionInfomation().getThreeChoiceQuizAnswer().getThreeChoiceQuizChoice().getThreeChoiceQuizSelectionItemB().getCorrectAnswerJudgment().equals(CorrectAnswerJudgment.CORRECT_ANSWER)) {
-            map.put("three_quiz_answer", threeChoiceQuiz.getThreeChoiceQuestionInfomation().getThreeChoiceQuizAnswer().getThreeChoiceQuizChoice().getThreeChoiceQuizSelectionItemB().getThreeChoiceQuizSelectionItemValue().getValue());
-        }
-        if (threeChoiceQuiz.getThreeChoiceQuestionInfomation().getThreeChoiceQuizAnswer().getThreeChoiceQuizChoice().getThreeChoiceQuizSelectionItemC().getCorrectAnswerJudgment().equals(CorrectAnswerJudgment.CORRECT_ANSWER)) {
-            map.put("three_quiz_answer", threeChoiceQuiz.getThreeChoiceQuestionInfomation().getThreeChoiceQuizAnswer().getThreeChoiceQuizChoice().getThreeChoiceQuizSelectionItemC().getThreeChoiceQuizSelectionItemValue().getValue());
-        }
+        map.put("three_quiz_answer", threeChoiceQuiz.getThreeChoiceQuestionInfomation().getThreeChoiceQuizAnswer().getThreeChoiceQuizSelectionItemValue().getValue());
         model.addAttribute("map", map);
 
         return "three-choice-quiz/refer";
